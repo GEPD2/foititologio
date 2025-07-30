@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <title>Εισαγωγή Εγγραφής</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 20px auto; padding: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, select { width: 100%; padding: 8px; box-sizing: border-box; }
+        .required { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Εισαγωγή Νέας Εγγραφής</h1>
+    <form action="/foititologio/actions/add_enrollmnent_action.php" method="post">
+        <div class="form-group">
+            <label for="enrollment_id">Κωδικός Εγγραφής <span class="required">*</span></label>
+            <input type="text" name="enrollment_id" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="student_id">Αριθμός Μητρώου Φοιτητή <span class="required">*</span></label>
+            <input type="text" name="student_id" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="subject_id">Κωδικός Μαθήματος <span class="required">*</span></label>
+            <input type="text" name="subject_id" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="professor_id">Κωδικός Καθηγητή <span class="required">*</span></label>
+            <input type="text" name="professor_id" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="enrollment_date">Ημερομηνία Εγγραφής <span class="required">*</span></label>
+            <input type="date" name="enrollment_date" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="exam_date">Ημερομηνία Εξέτασης</label>
+            <input type="date" name="exam_date">
+        </div>
+        
+        <div class="form-group">
+            <label for="grade">Βαθμός (0-10)</label>
+            <input type="number" name="grade" min="0" max="10" step="0.1">
+        </div>
+        
+        <div class="form-group">
+            <input type="submit" value="Καταχώρηση">
+        </div>
+        <div class="form-group">
+          <button type="button" onclick="window.location.href='index.php'">Επιστροφή στην Αρχική</button>
+        </div>
+    </form>
+</body>
+</html>

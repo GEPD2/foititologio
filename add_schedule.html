@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <title>Εισαγωγή Προγράμματος Μαθημάτων</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 700px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .required {
+            color: red;
+        }
+        .submit-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+        .return-btn {
+            margin-top: 15px;
+            background-color: #6c757d;
+        }
+        #new-category-group {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Διαχείριση Προγράμματος Μαθημάτων</h1>
+
+    <form action="/foititologio/actions/add_schedule_action.php" method="post">
+        <h2>Εισαγωγή Προγράμματος Μαθήματος</h2>
+
+        <div class="form-group">
+            <label for="subject_id">Κωδικός Μαθήματος <span class="required">*</span></label>
+            <input type="text" name="subject_id" id="subject_id" required>
+        </div>
+
+        <div class="form-group">
+            <label for="schedule_category_pk">Επιλογή Κατηγορίας</label>
+            <select name="schedule_category_pk" id="schedule_category_pk">
+                <option value="">-- Επιλέξτε Κατηγορία --</option>
+                <option value="CORE">Υποχρεωτικό</option>
+                <option value="ELECTIVE">Επιλογής</option>
+                <option value="SEMINAR">Εργαστήριο</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <input type="checkbox" id="create_new_category" name="create_new_category">
+            <label for="create_new_category">Εισαγωγή Νέας Κατηγορίας</label>
+        </div>
+
+        <div class="form-group" id="new-category-group">
+            <label for="type_of_subject">Τύπος Μαθήματος (Νέα Κατηγορία) <span class="required">*</span></label>
+            <select name="type_of_subject" id="type_of_subject">
+                <option value="">-- Επιλέξτε Τύπο --</option>
+                <option value="CORE">Υποχρεωτικό</option>
+                <option value="ELECTIVE">Επιλογής</option>
+                <option value="SEMINAR">Εργαστήριο</option>
+            </select>
+        </div>
+
+        <button type="submit" class="submit-btn">Προσθήκη Προγράμματος</button>
+    </form>
+
+    <div class="form-group">
+        <button type="button" class="submit-btn return-btn" onclick="window.location.href='index.php'">Επιστροφή στην Αρχική</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkbox = document.getElementById('create_new_category');
+            const newCategoryGroup = document.getElementById('new-category-group');
+
+            checkbox.addEventListener('change', function() {
+                newCategoryGroup.style.display = this.checked ? 'block' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>

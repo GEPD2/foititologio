@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <title>Εισαγωγή Φοιτητή</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 700px; margin: 20px auto; padding: 20px; }
+    .form-group { margin-bottom: 15px; }
+    label { display: block; margin-bottom: 5px; }
+    input, select { width: 100%; padding: 8px; box-sizing: border-box; }
+    .required { color: red; }
+    .sub-section { padding: 10px; background-color: #f9f9f9; border: 1px solid #ccc; margin-bottom: 15px; }
+  </style>
+</head>
+<body>
+  <h1>Εισαγωγή Νέου Φοιτητή</h1>
+
+  <form action="/foititologio/actions/add_student_action.php" method="post">
+    <div class="form-group">
+      <label for="first_name">Όνομα <span class="required">*</span></label>
+      <input type="text" name="first_name" id="first_name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="last_name">Επώνυμο <span class="required">*</span></label>
+      <input type="text" name="last_name" id="last_name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="father_name">Πατρώνυμο <span class="required">*</span></label>
+      <input type="text" name="father_name" id="father_name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email <span class="required">*</span></label>
+      <input type="email" name="email" id="email" required>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Τηλέφωνο <span class="required">*</span></label>
+      <input type="text" name="phone" id="phone" required>
+    </div>
+
+    <div class="form-group">
+      <label for="address_">Διεύθυνση <span class="required">*</span></label>
+      <input type="text" name="address_" id="address_" required>
+    </div>
+
+    <div class="form-group">
+      <label for="class_code">Κωδικός Τμήματος <span class="required">*</span></label>
+      <input type="text" name="class_code" id="class_code" required>
+    </div>
+
+    <div class="form-group">
+      <label for="professor_id">ID Σύμβουλου Καθηγητή <span class="required">*</span></label>
+      <input type="text" name="professor_id" id="professor_id">
+    </div>
+
+    <div class="form-group">
+      <label for="registration_date">Ημερομηνία Εγγραφής <span class="required">*</span></label>
+      <input type="date" name="registration_date" id="registration_date" required>
+    </div>
+
+    <div class="form-group">
+      <label for="student_type">Είδος Φοιτητή <span class="required">*</span></label>
+      <select name="student_type" id="student_type" required>
+        <option value="">-- Επιλέξτε --</option>
+        <option value="undergraduate">Προπτυχιακός</option>
+        <option value="postgraduate">Μεταπτυχιακός</option>
+        <option value="teaching">Διδασκαλία</option>
+      </select>
+    </div>
+
+    <!-- Περιοχή για undergraduate -->
+    <div id="undergraduate_fields" class="sub-section" style="display: none;">
+      <h3>Στοιχεία Προπτυχιακού</h3>
+      <div class="form-group">
+        <label>Τύπος Λυκείου</label>
+        <input type="text" name="type_of_school">
+      </div>
+      <div class="form-group">
+        <label>Τρόπος Εισαγωγής</label>
+        <input type="text" name="type_of_exams">
+      </div>
+      <div class="form-group">
+        <label>Όνομα Σχολείου</label>
+        <input type="text" name="name_of_school">
+      </div>
+      <div class="form-group">
+        <label>Αριθμός Φορών Εισαγωγής</label>
+        <input type="number" name="number_of_entrance" min="0">
+      </div>
+      <div class="form-group">
+        <label>Σειρά Επιτυχίας</label>
+        <input type="number" name="admission_rank" min="0">
+      </div>
+    </div>
+
+    <!-- Περιοχή για postgraduate -->
+    <div id="postgraduate_fields" class="sub-section" style="display: none;">
+      <h3>Στοιχεία Μεταπτυχιακού</h3>
+      <div class="form-group">
+        <label>Πτυχίο Βασικών Σπουδών</label>
+        <input type="text" name="first_degree_name">
+      </div>
+    </div>
+
+    <!-- Περιοχή για teaching -->
+    <div id="teaching_fields" class="sub-section" style="display: none;">
+      <h3>Στοιχεία Διδασκαλίας</h3>
+      <div class="form-group">
+        <label>Πανεπιστήμιο</label>
+        <input type="text" name="university">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input type="submit" value="Καταχώρηση">
+    </div>
+  </form>
+
+  <div class="form-group">
+  <button type="button" onclick="window.location.href='index.php'">Επιστροφή στην Αρχική</button>
+  </div>
+
+  <script>
+    document.getElementById('student_type').addEventListener('change', function () {
+      const type = this.value;
+      document.getElementById('undergraduate_fields').style.display = type === 'undergraduate' ? 'block' : 'none';
+      document.getElementById('postgraduate_fields').style.display = type === 'postgraduate' ? 'block' : 'none';
+      document.getElementById('teaching_fields').style.display = type === 'teaching' ? 'block' : 'none';
+    });
+  </script>
+</body>
+</html>

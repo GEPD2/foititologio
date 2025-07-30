@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <title>Εισαγωγή Μαθήματος</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 20px auto; padding: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; }
+        input, select { width: 100%; padding: 8px; box-sizing: border-box; }
+        .required { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Εισαγωγή Νέου Μαθήματος</h1>
+    <form action="/foititologio/actions/add_subject_action.php" method="post">
+        <div class="form-group">
+            <label for="subject_id">Κωδικός Μαθήματος <span class="required">*</span></label>
+            <input type="text" id="subject_id" name="subject_id" required pattern="[A-Za-z0-9]{2,20}" 
+                   title="Μόνο λατινικοί χαρακτήρες και αριθμοί (2-20 χαρακτήρες)">
+        </div>
+        
+        <div class="form-group">
+            <label for="title">Όνομα Μαθήματος <span class="required">*</span></label>
+            <input type="text" id="title" name="title" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="ects">Πιστωτικές Μονάδες (ECTS) <span class="required">*</span></label>
+            <input type="number" id="ects" name="ects" min="1" max="30" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="semester">Εξάμηνο <span class="required">*</span></label>
+            <select id="semester" name="semester" required>
+                <option value="1">1ο</option>
+                <option value="2">2ο</option>
+                <option value="3">3ο</option>
+                <option value="4">4ο</option>
+                <option value="5">5ο</option>
+                <option value="6">6ο</option>
+                <option value="7">7ο</option>
+                <option value="8">8ο</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="month_">Μήνας διδασκαλίας</label>
+            <input type="text" id="month_" name="month_">
+        </div>
+        
+        <div class="form-group">
+            <label for="importance">Βαρύτητα <span class="required">*</span></label>
+            <select id="importance" name="importance" required>
+                <option value="Υψηλή">Υψηλή</option>
+                <option value="Μέτρια">Μέτρια</option>
+                <option value="Χαμηλή">Χαμηλή</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="category">Κατηγορία <span class="required">*</span></label>
+            <input type="text" id="category" name="category" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="program">Πρόγραμμα σπουδών <span class="required">*</span></label>
+            <input type="text" id="program" name="program" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="class_code">Κωδικός Τμήματος <span class="required">*</span></label>
+            <input type="text" id="class_code" name="class_code" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="min_duration_months">Ελάχιστος χρόνος ολοκλήρωσης (μήνες)</label>
+            <input type="number" id="min_duration_months" name="min_duration_months" min="0">
+        </div>
+        
+        <div class="form-group">
+            <label for="max_duration_months">Μέγιστος χρόνος ολοκλήρωσης (μήνες)</label>
+            <input type="number" id="max_duration_months" name="max_duration_months" min="0">
+        </div>
+        
+        <div class="form-group">
+            <label for="prerequisites">Προαπαιτούμενα (διαχωρίστε με κόμμα αν υπάρχουν πολλά)</label>
+            <input type="text" id="prerequisites" name="prerequisites">
+        </div>
+        
+        <div class="form-group">
+            <input type="submit" value="Καταχώρηση">
+        </div>
+        <div class="form-group">
+        <button type="button" onclick="window.location.href='index.php'">Επιστροφή στην Αρχική</button>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <title>Εισαγωγή Τμήματος</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 20px auto; padding: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, select { width: 100%; padding: 8px; box-sizing: border-box; }
+        .required { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Εισαγωγή Νέου Τμήματος</h1>
+    <form action="/foititologio/actions/add_class_action.php" method="post">
+        <div class="form-group">
+            <label for="code">Κωδικός Τμήματος <span class="required">*</span></label>
+            <input type="text" name="code" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="name_">Όνομα Τμήματος <span class="required">*</span></label>
+            <input type="text" name="name_" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="email">Email <span class="required">*</span></label>
+            <input type="email" name="email" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="phone">Τηλέφωνο <span class="required">*</span></label>
+            <input type="text" name="phone" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="region">Περιοχή <span class="required">*</span></label>
+            <input type="text" name="region" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="website">Ιστοσελίδα <span class="required">*</span></label>
+            <input type="url" name="website" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="headquarters">Έδρα <span class="required">*</span></label>
+            <input type="text" name="headquarters" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="min_semesters">Ελάχιστα Εξάμηνα <span class="required">*</span></label>
+            <input type="number" name="min_semesters" min="1" max="12" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="social_media">Κοινωνικά Δίκτυα</label>
+            <input type="text" name="social_media">
+        </div>
+        
+        <div class="form-group">
+            <input type="submit" value="Καταχώρηση">
+        </div>
+        <div class="form-group">
+          <button type="button" onclick="window.location.href='index.php'">Επιστροφή στην Αρχική</button>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <title>Εισαγωγή Καθηγητή</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 20px auto; padding: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; }
+        input, select { width: 100%; padding: 8px; box-sizing: border-box; }
+        .required { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Εισαγωγή Νέου Καθηγητή</h1>
+    <form action="/foititologio/actions/add_professor_action.php" method="post">
+        <div class="form-group">
+            <label for="id">Κωδικός Καθηγητή <span class="required">*</span></label>
+            <input type="text" name="id" required>
+        </div>
+        <div class="form-group">
+            <label for="name">Όνομα <span class="required">*</span></label>
+            <input type="text" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="last_name">Επώνυμο <span class="required">*</span></label>
+            <input type="text" name="last_name" required>
+        </div>
+        <div class="form-group">
+            <label for="specialty">Ειδικότητα <span class="required">*</span></label>
+            <input type="text" name="specialty" required>
+        </div>
+        <div class="form-group">
+            <label for="position">Ακαδημαϊκή Θέση <span class="required">*</span></label>
+            <input type="text" name="position" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Τηλέφωνο</label>
+            <input type="text" name="phone">
+        </div>
+        <div class="form-group">
+            <label for="address">Διεύθυνση</label>
+            <input type="text" name="address">
+        </div>
+        <div class="form-group">
+            <label for="email">Email <span class="required">*</span></label>
+            <input type="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="class_code">Τμήμα (Κωδικός) <span class="required">*</span></label>
+            <input type="text" name="class_code" required>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Καταχώρηση">
+        </div>
+        <div class="form-group">
+            <button type="button" onclick="window.location.href='index.php'">Επιστροφή στην Αρχική</button>
+        </div>
+    </form>
+</body>
+</html>

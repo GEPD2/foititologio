@@ -1,3 +1,4 @@
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 # 🎓 Student Management Information System
 
 This repository contains a comprehensive **student management system** implemented with **PHP**, **MySQL**, and **JavaScript**. The system allows **insertion, storage, and tracking** of student, professor, course, thesis, and academic progress data.
